@@ -31,7 +31,7 @@ import com.thetransactioncompany.jsonrpc2.*;
  * </pre>
  *
  * @author Vladimir Dzhuvinov
- * @version 1.5.1 (2011-07-15)
+ * @version $version$ (2011-07-15)
  */
 public class Dispatcher {
 	

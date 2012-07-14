@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  * </ul>
  *
  * @author Vladimir Dzhuvinov
- * @version 1.5.1 (2012-02-20)
+ * @version $version$ (2012-02-20)
  */
 public class MessageContext {
 

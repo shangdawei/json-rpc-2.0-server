@@ -31,6 +31,6 @@
  *
  *
  * @author Vladimir Dzhuvinov
- * @version 1.5.1 (2012-02-20)
+ * @version $version$ ($version-date$)
  */
 package com.thetransactioncompany.jsonrpc2.server;
