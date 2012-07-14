@@ -38,3 +38,7 @@ version 1.5 (2012-02-19)
 
 version 1.5.1 (2012-04-03)
 	* Updates JSON-RPC 2.0 Base JAR to 1.25.1 (JSON Smart 1.1.1).
+
+version 1.6 (2012-07-14)
+	* Adds minimal MessageContext constructor.
+	* Updates JSON-RPC 2.0 Base JAR to 1.27.
