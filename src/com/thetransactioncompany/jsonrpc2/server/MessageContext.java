@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  * </ul>
  *
  * @author Vladimir Dzhuvinov
- * @version $version$ (2012-02-20)
+ * @version $version$ (2012-07-14)
  */
 public class MessageContext {
 
@@ -209,6 +209,17 @@ public class MessageContext {
 	
 		this.clientHostName = clientHostName;
 		this.clientInetAddress = clientInetAddress;
+		this.secure = false;
+	}
+	
+	
+	/**
+	 * Creates a new JSON-RPC 2.0 request / notification context. Indicates 
+	 * an insecure transport (plain HTTP) and no authenticated client 
+	 * principal. Not client host name / IP is specified.
+	 */
+	public MessageContext() {
+	
 		this.secure = false;
 	}
 	
