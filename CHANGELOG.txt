@@ -42,3 +42,7 @@ version 1.5.1 (2012-04-03)
 version 1.6 (2012-07-14)
 	* Adds minimal MessageContext constructor.
 	* Updates JSON-RPC 2.0 Base JAR to 1.27.
+
+version 1.7 (2012-08-27)
+	* Dispatcher implements RequestHandler and Notification handler;
+	  deprecates Dispatcher.dispatch(...) methods.

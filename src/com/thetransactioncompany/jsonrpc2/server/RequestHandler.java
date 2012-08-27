@@ -14,10 +14,9 @@ public interface RequestHandler {
 
 	
 	/**
-	 * Gets the JSON-RPC 2.0 request method names that this handler 
-	 * processes.
+	 * Gets the names of the handled JSON-RPC 2.0 request methods.
 	 *
-	 * @return The method names of the served JSON-RPC 2.0 requests.
+	 * @return The names of the handled JSON-RPC 2.0 request methods.
 	 */
 	public String[] handledRequests();
 	
@@ -25,12 +24,13 @@ public interface RequestHandler {
 	/**
 	 * Processes a JSON-RPC 2.0 request.
 	 *
-	 * @param request    A valid JSON-RPC 2.0 request instance.
-	 * @param requestCtx Context information about the request, may be 
-	 *                   {@code null} if undefined.
+	 * @param request    A valid JSON-RPC 2.0 request instance. Must not be
+	 *                   {@code null}.
+	 * @param requestCtx Context information about the request message, may 
+	 *                   be {@code null} if undefined.
 	 *
-	 * @return The resulting JSON-RPC 2.0 response.
+	 * @return The resulting JSON-RPC 2.0 response. It indicates success
+	 *         or an error, such as METHOD_NOT_FOUND.
 	 */
 	public JSONRPC2Response process(final JSONRPC2Request request, final MessageContext requestCtx);
-
 }

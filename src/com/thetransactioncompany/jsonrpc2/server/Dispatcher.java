@@ -12,7 +12,7 @@ import com.thetransactioncompany.jsonrpc2.*;
  * <p>Use the {@code register()} methods to add a request or notification
  * handler for an RPC method.
  *
- * <p>Use the {@code dispatch()} methods to have an incoming request or
+ * <p>Use the {@code process()} methods to have an incoming request or
  * notification processed by the matching handler.
  *
  * <p>The {@code reportProcTime()} method enables reporting of request 
@@ -30,10 +30,13 @@ import com.thetransactioncompany.jsonrpc2.*;
  * }
  * </pre>
  *
+ * <p>Note: The dispatch(...) methods were deprecated in version 1.7. Use 
+ * process(...) instead.
+ *
  * @author Vladimir Dzhuvinov
- * @version $version$ (2011-07-15)
+ * @version $version$ (2012-08-26)
  */
-public class Dispatcher {
+public class Dispatcher implements RequestHandler, NotificationHandler {
 	
 	
 	/** 
@@ -68,7 +71,8 @@ public class Dispatcher {
 	/**
 	 * Registers a new JSON-RPC 2.0 request handler.
 	 *
-	 * @param handler The request handler to register.
+	 * @param handler The request handler to register. Must not be 
+	 *                {@code null}.
 	 *
 	 * @throws IllegalArgumentException On attempting to register a handler
 	 *                                  that duplicates an existing request
@@ -79,7 +83,7 @@ public class Dispatcher {
 		for (String name: handler.handledRequests()) {
 		
 			if (requestHandlers.containsKey(name))
-				throw new IllegalArgumentException("Cannot register a duplicate handler for request " + name);
+				throw new IllegalArgumentException("Cannot register a duplicate JSON-RPC 2.0 handler for request " + name);
 		
 			requestHandlers.put(name, handler);
 		}
@@ -89,7 +93,8 @@ public class Dispatcher {
 	/**
 	 * Registers a new JSON-RPC 2.0 notification handler.
 	 *
-	 * @param handler The notification handler to register.
+	 * @param handler The notification handler to register. Must not be
+	 *                {@code null}.
 	 *
 	 * @throws IllegalArgumentException On attempting to register a handler
 	 *                                  that duplicates an existing
@@ -100,29 +105,21 @@ public class Dispatcher {
 		for (String name: handler.handledNotifications()) {
 		
 			if (notificationHandlers.containsKey(name))
-				throw new IllegalArgumentException("Cannot register a duplicate handler for notification " + name);
+				throw new IllegalArgumentException("Cannot register a duplicate JSON-RPC 2.0 handler for notification " + name);
 		
 			notificationHandlers.put(name, handler);
 		}
 	}
 	
 	
-	/**
-	 * Returns the registered request names.
-	 *
-	 * @return The request names.
-	 */
+	@Override
 	public String[] handledRequests() {
 	
 		return requestHandlers.keySet().toArray(new String[0]);
 	}
 	
 	
-	/**
-	 * Returns the registered notification names.
-	 *
-	 * @return The notification names.
-	 */
+	@Override
 	public String[] handledNotifications() {
 	
 		return notificationHandlers.keySet().toArray(new String[0]);
@@ -158,18 +155,16 @@ public class Dispatcher {
 	
 	
 	/**
-	 * Dispatches the specified JSON-RPC 2.0 request to the appropriate 
-	 * handler for processing and returns the response.
-	 *
-	 * @param request    The JSON-RPC 2.0 request to dispatch for 
-	 *                   processing.
-	 * @param requestCtx Context information about the request, may be 
-	 *                   {@code null} if undefined.
-	 *
-	 * @return The response, which may indicate a processing error, such
-	 *         as METHOD_NOT_FOUND.
+	 * @deprecated
 	 */
 	public JSONRPC2Response dispatch(final JSONRPC2Request request, final MessageContext requestCtx) {
+	
+		return process(request, requestCtx);
+	}
+	
+	
+	@Override
+	public JSONRPC2Response process(final JSONRPC2Request request, final MessageContext requestCtx) {
 	
 		long startNanosec = 0;
 		
@@ -207,17 +202,16 @@ public class Dispatcher {
 	
 	
 	/**
-	 * Dispatches the specified JSON-RPC 2.0 notification to the appropriate 
-	 * handler for processing.
-	 *
-	 * <p>Note that JSON-RPC 2.0 notifications don't produce a response!
-	 *
-	 * @param notification    The JSON-RPC 2.0 notification to dispatch for 
-	 *                        processing.
-	 * @param notificationCtx Context information about the notification,
-	 *                        may be {@code null} if undefined.
+	 * @deprecated
 	 */
 	public void dispatch(final JSONRPC2Notification notification, final MessageContext notificationCtx) {
+	
+		process(notification, notificationCtx);
+	}
+	
+	
+	@Override
+	public void process(final JSONRPC2Notification notification, final MessageContext notificationCtx) {
 	
 		final String method = notification.getMethod();
 		

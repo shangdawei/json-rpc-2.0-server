@@ -14,10 +14,9 @@ public interface NotificationHandler {
 
 	
 	/**
-	 * Gets the JSON-RPC 2.0 notification method names that this handler 
-	 * processes.
+	 * Gets the names of the handled JSON-RPC 2.0 notification methods.
 	 *
-	 * @return The method names of the served JSON-RPC 2.0 notifications.
+	 * @return The names of the handled JSON-RPC 2.0 notification methods.
 	 */
 	public String[] handledNotifications();
 	
@@ -25,9 +24,12 @@ public interface NotificationHandler {
 	/**
 	 * Processes a JSON-RPC 2.0 notification.
 	 *
+	 * <p>Note that JSON-RPC 2.0 notifications don't produce a response!
+	 *
 	 * @param notification    A valid JSON-RPC 2.0 notification instance.
-	 * @param notificationCtx Context information about the notification,
-	 *                        may be {@code null} if undefined.
+	 *                        Must not be {@code null}.
+	 * @param notificationCtx Context information about the notification
+	 *                        message, may be {@code null} if undefined.
 	 */
 	public void process(final JSONRPC2Notification notification, final MessageContext notificationCtx);
 

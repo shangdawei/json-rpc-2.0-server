@@ -6,13 +6,11 @@ import java.util.*;
 
 
 /**
- * Demonstration of the JSON-RPC 2.0 Server framework usage. The request
- * handlers are implemented as static nested classes for convenience, but in 
- * real life applications may be defined as regular classes within their old 
- * source files.
+ * Demonstrates use of the JSON-RPC 2.0 Server framework. The request handlers 
+ * are implemented as static nested classes for convenience.
  *
  * @author Vladimir Dzhuvinov
- * @version 2011-03-05
+ * @version 2012-08-27
  */ 
 public class Example {
 
@@ -108,7 +106,7 @@ public class Example {
 		JSONRPC2Request req = new JSONRPC2Request("echo", echoParam, "req-id-01");
 		System.out.println("Request: \n" + req);
 		
-		JSONRPC2Response resp = dispatcher.dispatch(req, null);
+		JSONRPC2Response resp = dispatcher.process(req, null);
 		System.out.println("Response: \n" + resp);
 		
 		
@@ -116,7 +114,7 @@ public class Example {
 		req = new JSONRPC2Request("getDate", "req-id-02");
 		System.out.println("Request: \n" + req);
 		
-		resp = dispatcher.dispatch(req, null);
+		resp = dispatcher.process(req, null);
 		System.out.println("Response: \n" + resp);
 		
 		
@@ -124,7 +122,7 @@ public class Example {
 		req = new JSONRPC2Request("getTime", "req-id-03");
 		System.out.println("Request: \n" + req);
 		
-		resp = dispatcher.dispatch(req, null);
+		resp = dispatcher.process(req, null);
 		System.out.println("Response: \n" + resp);
 	}
 }
