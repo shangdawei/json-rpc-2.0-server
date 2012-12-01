@@ -1,5 +1,6 @@
 /procsrc/
 /build/
 /javadoc/
-/jsonrpc2-server-*.jar
 /TEST*
+/jsonrpc2-server-*.jar
+/JsonRpc2-Server.zip
