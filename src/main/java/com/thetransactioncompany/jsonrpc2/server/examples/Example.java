@@ -1,8 +1,11 @@
-import com.thetransactioncompany.jsonrpc2.*;
-import com.thetransactioncompany.jsonrpc2.server.*;
+package com.thetransactioncompany.jsonrpc2.server.examples;
+
 
 import java.text.*;
 import java.util.*;
+
+import com.thetransactioncompany.jsonrpc2.*;
+import com.thetransactioncompany.jsonrpc2.server.*;
 
 
 /**
@@ -10,7 +13,6 @@ import java.util.*;
  * are implemented as static nested classes for convenience.
  *
  * @author Vladimir Dzhuvinov
- * @version 2012-08-27
  */ 
 public class Example {
 

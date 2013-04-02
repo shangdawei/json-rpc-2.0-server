@@ -38,7 +38,6 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
  * process(...) instead.
  *
  * @author Vladimir Dzhuvinov
- * @version $version$ (2012-08-26)
  */
 public class Dispatcher implements RequestHandler, NotificationHandler {
 	

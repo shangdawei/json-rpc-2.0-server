@@ -29,8 +29,6 @@
  *         objects from HTTP servlet requests.
  * </ul>
  *
- *
  * @author Vladimir Dzhuvinov
- * @version $version$
  */
 package com.thetransactioncompany.jsonrpc2.server;

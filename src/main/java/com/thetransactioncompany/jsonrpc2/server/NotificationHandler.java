@@ -8,7 +8,6 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Notification;
  * Interface for handling JSON-RPC 2.0 notifications.
  *
  * @author Vladimir Dzhuvinov
- * @version $version$ (2011-03-05)
  */
 public interface NotificationHandler {
 

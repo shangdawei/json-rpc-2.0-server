@@ -30,30 +30,7 @@ Package requirements:
 	  is at http://software.dzhuvinov.com/json-rpc-2.0-base.html.
 	
 	* Java Servlet API for constructing MessageContext objects from HTTP 
-	  servlet requests. 
-
-
-Package content:
-
-	README.txt                    This file.
-	
-	LICENSE.txt                   The software license.
-	
-	CHANGELOG.txt                 The change log.
-	
-	jsonrpc2-server-{version}.jar JAR file containing the compiled package
-	                              files.
-	
-	Example.java                  Example program.
-	
-	javadoc/                      The Java Docs for this package.
-	
-	pom.xml                       The Maven build file.
-	
-	lib/                          The package dependencies.
-	
-	src/                          The full source code for this package.
-
+	  servlet requests.
 
 
 For complete JSON-RPC 2.0 Server documentation, examples and updates visit
