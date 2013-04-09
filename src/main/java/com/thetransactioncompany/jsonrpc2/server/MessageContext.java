@@ -85,10 +85,9 @@ public class MessageContext {
 		 */
 		public boolean equals(final Object another) {
 		
-			if (another instanceof Principal && ((Principal)another).getName().equals(this.getName()))
-				return true;
-			else
-				return false;
+			return another != null &&
+			       another instanceof Principal && 
+			       ((Principal)another).getName().equals(this.getName());
 		}
 		
 		
