@@ -35,7 +35,7 @@ public class Example {
 				
 				// Echo first parameter
 				
-				List params = (List)req.getParams();
+				List params = (List)req.getPositionalParams();
 			
 				Object input = params.get(0);
 			
@@ -102,7 +102,7 @@ public class Example {
 		dispatcher.register(new DateTimeHandler());
 		
 		// Simulate an "echo" JSON-RPC 2.0 request
-		List echoParam = new LinkedList();
+		List<Object> echoParam = new LinkedList<Object>();
 		echoParam.add("Hello world!");
 		
 		JSONRPC2Request req = new JSONRPC2Request("echo", echoParam, "req-id-01");
