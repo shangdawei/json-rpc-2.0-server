@@ -11,7 +11,7 @@
 	
 	<groupId>com.thetransactioncompany</groupId>
 	<artifactId>jsonrpc2-server</artifactId>
-	<version>1.9.3-SNAPSHOT</version>
+	<version>1.10-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
 	<name>JSON-RPC 2.0 Server</name>

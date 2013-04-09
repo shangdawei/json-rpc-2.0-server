@@ -59,3 +59,6 @@ version 1.9.1 (2013-03-30)
 	
 version 1.9.2 (2013-04-02)
 	* Publishes library to Maven Central.
+
+version 1.10 (2013-04-09)
+	* Adds MessageContext(java.net.URLConnection) constructor.
