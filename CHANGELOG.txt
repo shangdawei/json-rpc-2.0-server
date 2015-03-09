@@ -63,5 +63,5 @@ version 1.9.2 (2013-04-02)
 version 1.10 (2013-04-09)
 	* Adds MessageContext(java.net.URLConnection) constructor.
 
-version 1.11 (2013-04-18)
+version 1.10.1 (2013-04-18)
 	* Updates scope for servlet 2.5 API dependency.
