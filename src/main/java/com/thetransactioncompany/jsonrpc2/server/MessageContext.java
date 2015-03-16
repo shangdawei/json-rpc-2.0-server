@@ -272,7 +272,7 @@ public class MessageContext {
 
 		InetAddress ip = null;
 
-		if (ip != null) {
+		if (clientHostName != null) {
 
 			try {
 				ip = InetAddress.getByName(clientHostName);

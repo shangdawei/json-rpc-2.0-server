@@ -45,13 +45,13 @@ public class Dispatcher implements RequestHandler, NotificationHandler {
 	/** 
 	 * Hashtable of request name / handler pairs. 
 	 */
-	private Hashtable<String,RequestHandler> requestHandlers;
+	private final Hashtable<String,RequestHandler> requestHandlers;
 	
 	
 	/**
 	 * Hashtable of notification name / handler pairs.
 	 */
-	private Hashtable<String,NotificationHandler> notificationHandlers;
+	private final Hashtable<String,NotificationHandler> notificationHandlers;
 	
 	
 	/**
@@ -117,15 +117,17 @@ public class Dispatcher implements RequestHandler, NotificationHandler {
 	
 	@Override
 	public String[] handledRequests() {
-	
-		return requestHandlers.keySet().toArray(new String[0]);
+
+		java.util.Set<String> var = requestHandlers.keySet();
+		return var.toArray(new String[var.size()]);
 	}
 	
 	
 	@Override
 	public String[] handledNotifications() {
-	
-		return notificationHandlers.keySet().toArray(new String[0]);
+
+		java.util.Set<String> var = notificationHandlers.keySet();
+		return var.toArray(new String[var.size()]);
 	}
 	
 	
